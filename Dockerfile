@@ -10,9 +10,9 @@ RUN ["mvn", "dependency:resolve"]
 RUN ["mvn", "verify"]
 
 # Adding source, compile and package into a fat jar
-ADD src src  
+ADD src /src  
 RUN ["mvn", "package"]
 
-ADD app.jar app.jar
+ADD app.jar /app.jar
 RUN bash -c 'touch /app.jar'
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=container","-jar","/app.jar"]
