@@ -1,5 +1,5 @@
 FROM openjdk:11
 COPY . . 
 EXPOSE 8080
-ADD target/app.jar app.jar
+ADD app.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
