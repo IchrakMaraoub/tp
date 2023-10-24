@@ -4,10 +4,6 @@ EXPOSE 8080
 
 RUN apt-get update  
 RUN apt-get install -y maven
-
-RUN ["mvn", "dependency:resolve"]  
-RUN ["mvn", "verify"]
-
 RUN ["mvn", "package"]
 
 RUN bash -c 'touch /app.jar'
